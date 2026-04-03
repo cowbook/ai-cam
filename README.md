@@ -1,6 +1,55 @@
 # ai-cartoon-cam
 
+[![CI](https://github.com/cowbook/ai-cam/actions/workflows/ci.yml/badge.svg)](https://github.com/cowbook/ai-cam/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/cowbook/ai-cam?sort=semver)](https://github.com/cowbook/ai-cam/releases)
+[![Python](https://img.shields.io/badge/python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Platform: macOS](https://img.shields.io/badge/platform-macOS-black?logo=apple)](https://www.apple.com/macos/)
+
 A local real-time camera stylization project for macOS, designed for OBS and livestream workflows.
+
+## Quick Start
+
+### 1) Clone and enter project
+
+```bash
+git clone git@github.com:cowbook/ai-cam.git
+cd ai-cam
+```
+
+### 2) Create environment and install
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -e '.[virtualcam,dev]'
+```
+
+### 3) Run real-time preview
+
+```bash
+ai-cartoon-cam --style cartoon
+```
+
+Try another style:
+
+```bash
+ai-cartoon-cam --style beauty
+```
+
+### 4) Run with config
+
+```bash
+ai-cartoon-cam --config examples/config.sample.yaml
+```
+
+### 5) Output to virtual camera for OBS
+
+```bash
+ai-cartoon-cam --style beauty --virtual-cam
+```
+
+Then in OBS, select the pyvirtualcam device as your camera source.
 
 ## Vision
 

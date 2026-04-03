@@ -78,3 +78,9 @@ Build a long-term open-source macOS local real-time camera stylization project f
 - Why: User requested publishing current project to GitHub under repository name ai-cam.
 - Validation: Local commit created and remote push to origin completed.
 - Next step: Continue feature iteration and open issues/milestones based on roadmap.
+
+- Date: 2026-04-03
+- What changed: Expanded README with a badge section and a complete Quick Start flow, then prepared repository metadata updates (Topics/About/Homepage) and v0.1.0 release publication.
+- Why: User requested first release setup and stronger open-source project presentation.
+- Validation: README updated and ready for commit/push; metadata and release steps executed via GitHub CLI.
+- Next step: Add changelog automation and release draft workflow.
