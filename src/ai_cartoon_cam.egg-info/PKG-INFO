@@ -1,0 +1,146 @@
+Metadata-Version: 2.4
+Name: ai-cartoon-cam
+Version: 0.1.0
+Summary: Real-time local camera stylization for cartoon/sketch effects on macOS.
+Author: ai-cartoon-cam contributors
+License: MIT
+Keywords: opencv,virtual-camera,cartoon,obs,macos
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Scientific/Engineering :: Image Processing
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python>=4.10.0
+Requires-Dist: numpy>=1.26.0
+Requires-Dist: PyYAML>=6.0.1
+Provides-Extra: virtualcam
+Requires-Dist: pyvirtualcam>=0.12.0; extra == "virtualcam"
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: ruff>=0.5.0; extra == "dev"
+Requires-Dist: mypy>=1.10.0; extra == "dev"
+Dynamic: license-file
+
+# ai-cartoon-cam
+
+A local real-time camera stylization project for macOS, designed for OBS and livestream workflows.
+
+## Vision
+
+Build an open-source, continuously improving project for:
+
+- Real-time cartoon/sketch/anime style effects.
+- Smooth macOS local inference and camera processing.
+- OBS virtual camera output for livestreaming platforms.
+- A plugin-friendly architecture for future AI models.
+
+## Current features (v0.1.0)
+
+- Real-time webcam capture via OpenCV.
+- Built-in styles: cartoon, sketch, anime, raw.
+- Optional virtual camera output via pyvirtualcam.
+- YAML config support.
+- CLI entrypoint for fast experiments.
+
+## Project structure
+
+```text
+ai-cartoon-cam/
+  src/aicartooncam/
+    cli.py
+    config.py
+    filters.py
+    pipeline.py
+  tests/
+  examples/
+  docs/
+```
+
+## Install
+
+```bash
+cd /Volumes/T4/2026/ai-cartoon-cam
+python -m venv .venv
+source .venv/bin/activate
+pip install -e '.[virtualcam,dev]'
+```
+
+## Run
+
+### Basic preview
+
+```bash
+ai-cartoon-cam --style cartoon
+```
+
+### Use config file
+
+```bash
+ai-cartoon-cam --config examples/config.sample.yaml
+```
+
+### Save and load presets
+
+Save a merged preset (defaults + config + CLI overrides):
+
+```bash
+ai-cartoon-cam --config examples/config.sample.yaml --style anime --save-preset stream-anime
+```
+
+Load a preset by name on next run:
+
+```bash
+ai-cartoon-cam --preset stream-anime
+```
+
+By default presets are stored in `~/.ai-cartoon-cam/presets`. You can override with `--preset-dir`.
+
+### Output to OBS virtual camera
+
+```bash
+ai-cartoon-cam --style anime --virtual-cam
+```
+
+Then in OBS, choose the virtual camera device produced by pyvirtualcam.
+
+## AI Session Continuity
+
+To continue work across new chats/sessions, start with:
+
+- aiwork/memory.md
+- aiwork/continue-prompt.md
+
+Update `aiwork/memory.md` after every meaningful change so later sessions can resume quickly.
+
+## Inspired by GitHub projects
+
+This project borrows architecture and practical ideas from the open-source ecosystem:
+
+- OpenCV image stylization and filtering pipelines:
+  - https://github.com/opencv/opencv
+- Real-time segmentation and media processing design:
+  - https://github.com/google-ai-edge/mediapipe
+- OBS plugin and streaming workflow patterns:
+  - https://github.com/obsproject/obs-studio
+- Community camera style transfer experiments:
+  - https://github.com/topics/style-transfer
+
+No code is copied from these repositories. References are used for learning design patterns and best practices.
+
+## Roadmap
+
+- Add face-aware skin smoothing with landmark protection.
+- Add temporal stabilization to reduce frame flicker.
+- Add ONNX Runtime backend for model-based stylization.
+- Add preset manager and hotkey switching.
+- Add benchmark mode for FPS/latency profiling.
+
+## License
+
+MIT

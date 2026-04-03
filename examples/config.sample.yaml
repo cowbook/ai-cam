@@ -1,0 +1,25 @@
+camera_index: 0
+width: 1280
+height: 720
+fps: 30
+style: cartoon
+preview: true
+virtual_cam: false
+
+edge_block_size: 9
+edge_blur_ksize: 7
+bilateral_passes: 2
+bilateral_d: 9
+bilateral_sigma_color: 80
+bilateral_sigma_space: 80
+
+stylization_sigma_s: 60.0
+stylization_sigma_r: 0.45
+
+beauty_passes: 2
+beauty_d: 9
+beauty_sigma_color: 50
+beauty_sigma_space: 50
+beauty_contrast: 1.05
+beauty_brightness: 8
+beauty_saturation: 1.08

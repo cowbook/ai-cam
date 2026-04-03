@@ -1,0 +1,2 @@
+[console_scripts]
+ai-cartoon-cam = aicartooncam.cli:main
